@@ -1,0 +1,25 @@
+{
+  "name": "babel",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BaymaxGroot/Babel.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BaymaxGroot/Babel/issues"
+  },
+  "homepage": "https://github.com/BaymaxGroot/Babel#readme",
+  "devDependencies": {
+    "@babel/core": "^7.17.10",
+    "@babel/generator": "^7.17.10",
+    "@babel/parser": "^7.17.10",
+    "@babel/traverse": "^7.17.10"
+  }
+}

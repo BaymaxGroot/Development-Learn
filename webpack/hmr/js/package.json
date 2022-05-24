@@ -1,0 +1,24 @@
+{
+  "name": "webpack-hmr",
+  "version": "1.0.0",
+  "description": "Webpack Hot Module Replacement",
+  "scripts": {
+    "build": "webpack",
+    "start": "webpack-dev-server --mode=development"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BaymaxGroot/Webpack-HMR.git"
+  },
+  "author": "Lele",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BaymaxGroot/Webpack-HMR/issues"
+  },
+  "homepage": "https://github.com/BaymaxGroot/Webpack-HMR#readme",
+  "devDependencies": {
+    "webpack": "^4.29.6",
+    "webpack-cli": "^3.2.3",
+    "webpack-dev-server": "^3.9.0"
+  }
+}
