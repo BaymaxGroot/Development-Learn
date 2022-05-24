@@ -1,0 +1,1 @@
+const style = require('./index.css');
