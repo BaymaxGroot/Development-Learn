@@ -1,5 +1,20 @@
 # 工具函数
 
+## 深拷贝
+
+    涉及到循环引用的深拷贝
+
+```javascript
+    function deepCopy(obj) {
+        if(typeof obj !== 'object' || obj === null) return obj;
+        let newObj = Array.isArray(obj)? [] : {};
+        for(const i in obj) {
+            if(obj.hasOwnProperty(i)) newObj[i] = arguments.callee(obj[i]);
+        }
+        return newObj;
+    }
+```
+
 ## 函数防抖
 
     限定时间内多次触发事件，只会触发最后一次
