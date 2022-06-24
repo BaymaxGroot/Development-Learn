@@ -101,7 +101,46 @@
 
     箭头函数没有this，箭头函数里面的this只取决于包裹箭头函数的第一个普通函数的this
 
+```javascript
+    function foo() {
+        return () => {
+            return () => {
+                return () => {
+                    console.log("id:", this.id);
+                };
+            };
+        };
+    }
+
+    foo.call( { id: 42 } )()()(); // 42
+    // 箭头函数沿着作用域链寻找最近的普通函数的this
+```
+
 ## 箭头函数
+
+### 1. 特性
+
+    箭头函数没有自己的this - 箭头函数不能做为构造函数
+    (箭头函数this绑定到外部作用域)
+
+    箭头函数内部不存在arguments对象
+
+```javascript
+    var obj = {
+        name: 'Lele',
+        age: 18,
+        say: function() {
+            var a = () => {
+                console.log( `${this.name} is ${this.age}.` )
+            };
+            a();
+        }
+    }; 
+    obj.say(); // Lele is 18.
+    obj.say.call( { name: 'Lyla', age: 18 }); // Lyla is 18.
+    var say = obj.say; // 隐式丢失
+    say(); // undefined is undefined.
+```
 
 
 

@@ -177,3 +177,54 @@
         }
     };
 ```
+
+## 实现call函数
+
+```javascript
+    Function.prototype.myCall = function(context) {
+        if(typeof this ！== 'function') throw new Error('Type error');
+        let args = [...arguments].splice(1);
+        let result = null;
+        context = context || window;
+        const fnSymbol = Symbol();
+        context[fnSymbol] = this;
+        result = context[fnSymbol](...args);
+        delete context[fnSymbol];
+        return resule;
+    }
+```
+
+## 实现apply函数
+
+```javascript
+    Function.prototype.myApply = function(context) {
+        if(typeof this !== 'function') throw new Error('Type error');
+        let result = null;
+        context = context || window;
+        const fnSymbol = Symbol();
+        context[fnSymbol] = this;
+        if(typeof arguments[1] !== 'undefined') {
+            result = context[fnSymbol](...arguments[1]);
+        } else {
+            result = context[fnSymbol]();
+        }
+        delete context[fnSymbol];
+        return result;
+    }
+```
+
+## 实现bind
+
+```javascript
+    Function.prototype.myBind = function(context) {
+        if(typeof this !== 'function') throw new Error('Type Error');
+        const args = [...arguments].slice(1);
+        const fn = this;
+        return function Fn() {
+            return fn.apply(
+                this instanceof Fn? this:context,
+                args.concat(...arguments)
+            )
+        }
+    }
+```
